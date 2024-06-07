@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offer</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('meditation_background.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-sizing: border-box;
+            transition: all 0.5s ease;
+            max-height: 80vh;
+            overflow: hidden;
+        }
+        .content.expanded {
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            overflow: auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+        .button {
+            background-color: #aaa058;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #a04545;
+        }
+        .close-button {
+            background-color: #a04545;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            display: inline-block;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .close-button:hover {
+            background-color: #a04545;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .button, .close-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content" id="content">
+            <h1 id="title">行愿老师：弘扬传统文化的践行者</h1>
+            <p id="description">深耕传统文化<br>传统文化践行者<br>用禅心道化人生<br>助力人生圆满</p>
+            <button class="button" id="claimButton" onclick="expandContent()">展开</button>
+            <button class="close-button" id="closeButton" onclick="collapseContent()" style="display: none;">关闭</button>
+        </div>
+    </div>
+
+    <script>
+        function expandContent() {
+            var content = document.getElementById('content');
+            var title = document.getElementById('title');
+            var description = document.getElementById('description');
+            var claimButton = document.getElementById('claimButton');
+            var closeButton = document.getElementById('closeButton');
+
+            content.classList.add('expanded');
+            claimButton.style.display = 'none';
+            closeButton.style.display = 'inline-block';
+            title.innerText = '全方位富足的圆满人生';
+
+            description.innerHTML = `
+                <h4>一、文化之根</h4>
+                <p>行愿老师，1970年生于一个传统文化底蕴深厚的家庭。自幼便沐浴在古典文化的熏陶之下，四岁起便开始了对传统文化的初步探索。这份独特的文化启蒙，如同种子般深深扎根于他的心中，为他日后的人生道路奠定了坚实的基础。</p>
+                <h4>二、禅修之旅</h4>
+                <p>1998年，行愿老师踏上了禅修之路，开始深入探寻生命的终极价值与人生的意义。他喜好禅坐，于寂静中感悟生命的真谛。忽一日，于定中起疑“我是谁？”并同时一念反观，刹那间、身心脱落...体验到了“天人合一”的玄妙境界！</p>
+                <h4>三、遍访明师</h4>
+                <p>致此行愿老师深刻体会到圣教经典非仅名相文字，其背后蕴含着丰富的实修实证义涵。因此，他潜心修学，四处参访明师，不断充实自己的学识与修养。他也乐于将自己的实修体验与心得分享给有缘人，让更多人受益...</p>
+                <h4>四、教学相长</h4>
+                <p>历经26年的历事炼心，道之途是宽广而旷远，他怀揣持久的坚韧之心。行愿老师对儒释道三家之道的启示与妙旨有了深入的理解与独到的见解。他特别注重如何将经典智慧落实到日常生活中，通过内外兼修的方式，改造内化生命内在，调柔心性，升华生命维度。他坚信“道不离术、道术互融互摄”，使生命融合于生活，真正体现了传统文化圆融和谐的生命本质。<br>在教学并长过程中，行愿老师注重引导学人将所学运用到生活中去，让他们在实践中体验道的真谛。他善于将复杂的道理用通俗易懂的语言表达出来，使学人易于理解、易于接受。在他的指导下，学人们逐渐领悟到传统文化的博大精深与生命的意义所在。</p>
+                <h4>五、道化人生</h4>
+                <p>行愿老师是一位传统文化践行者。他倡导人们在生活中运用道的思维去处理问题、去看待世界。他相信通过传统文化的滋养与道化的实践，人们可以实现富足、健康、快乐、智慧的人生目标。<br>在行愿老师的启发下，越来越多的人开始践行传统人文文化，努力追求全方位富足的圆满人生。</p>
+            `;
+        }
+
+        function collapseContent() {
+            var content = document.getElementById('content');
+            var title = document.getElementById('title');
+            var description = document.getElementById('description');
+            var claimButton = document.getElementById('claimButton');
+            var closeButton = document.getElementById('closeButton');
+
+            content.classList.remove('expanded');
+            claimButton.style.display = 'inline-block';
+            closeButton.style.display = 'none';
+            title.innerText = '行愿老师：弘扬传统文化的践行者';
+            description.innerHTML = '点击下方按钮阅读';
+        }
+    </script>
+</body>
+</html>
